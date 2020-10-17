@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class ApiHeaders {
-  static const endpoint = 'http://5himaka.adologysolutions.com/api';
+  static const endpoint = 'http://fleetcart.adology-solutions.com/api';
   static const userEndpoint = '/user';
   var client = new http.Client();
 

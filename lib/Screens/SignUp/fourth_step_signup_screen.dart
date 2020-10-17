@@ -112,7 +112,7 @@ class _FourthStepSignUpScreenState extends State<FourthStepSignUpScreen> {
                                   value: val,
                                   onChanged: (WithdrawMethod value) {
                                     setState(() {
-                                      model.methodIdValidate=true;
+                                      model.methodIdValidate = true;
                                       val = value;
                                     });
                                   },
@@ -304,24 +304,37 @@ class _FourthStepSignUpScreenState extends State<FourthStepSignUpScreen> {
                                                       .translate(
                                                           'auth_response_success'),
                                                   Colors.green);
-                                              Navigator.push(
+                                              Navigator.pushAndRemoveUntil(
                                                   context,
-                                                  new MaterialPageRoute(
+                                                  MaterialPageRoute(
                                                       builder: (context) =>
-                                                          new HomePage()));
+                                                          HomePage()),
+                                                  (Route<dynamic> route) =>
+                                                      false);
                                             } else if (!loginResponse.status) {
-                                              if((loginResponse.errors.errorsCode.keys.toList())[0]=="email")
-                                              showToast(
-                                                  AppLocalizations.of(context)
-                                                      .translate('email_exist'),
-                                                  Colors.red);
-                                              else if((loginResponse.errors.errorsCode.keys.toList())[0]=="code")
-                                                showToast(AppLocalizations.of(context)
-                                                    .translate('code_error'),
+                                              if ((loginResponse
+                                                      .errors.errorsCode.keys
+                                                      .toList())[0] ==
+                                                  "email")
+                                                showToast(
+                                                    AppLocalizations.of(context)
+                                                        .translate(
+                                                            'email_exist'),
+                                                    Colors.red);
+                                              else if ((loginResponse
+                                                      .errors.errorsCode.keys
+                                                      .toList())[0] ==
+                                                  "code")
+                                                showToast(
+                                                    AppLocalizations.of(context)
+                                                        .translate(
+                                                            'code_error'),
                                                     Colors.red);
                                               else
-                                                showToast(AppLocalizations.of(context)
-                                                    .translate('something_went_error'),
+                                                showToast(
+                                                    AppLocalizations.of(context)
+                                                        .translate(
+                                                            'something_went_error'),
                                                     Colors.red);
                                             } else {
                                               final snackBar = SnackBar(

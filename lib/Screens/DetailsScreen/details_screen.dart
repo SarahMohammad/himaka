@@ -1,6 +1,7 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:himaka/Screens/Chat/chat_screen.dart';
 import 'package:himaka/Screens/DetailsScreen/reviews_container.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
@@ -12,23 +13,28 @@ class DetailsScreen extends StatefulWidget {
   _DetailsScreenState createState() => _DetailsScreenState();
 }
 
-class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateMixin{
-
+class _DetailsScreenState extends State<DetailsScreen>
+    with TickerProviderStateMixin {
   List<Tab> tabList = List();
   TabController _tabController;
 
   Widget image_carousel = new Container(
     height: 200.0,
-    child:  Container(
+    child: Container(
       color: Colors.orange,
       child: new Carousel(
         boxFit: BoxFit.cover,
         images: [
-          Image.network('https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg'),
-          Image.network('https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg'),
-          Image.network('https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg'),
-          Image.network('https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg'),
-          Image.network('https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg'),
+          Image.network(
+              'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg'),
+          Image.network(
+              'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg'),
+          Image.network(
+              'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg'),
+          Image.network(
+              'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg'),
+          Image.network(
+              'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg'),
         ],
         autoplay: false,
 //      animationCurve: Curves.fastOutSlowIn,
@@ -41,7 +47,6 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
     ),
   );
 
-
   @override
   void initState() {
     // TODO: implement initState
@@ -51,35 +56,36 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
     ));
 
     tabList.add(new Tab(
-      text:
-      'Reviews',
+      text: 'Reviews',
     ));
-
 
     tabList.add(new Tab(
       text: 'Delivery info',
     ));
 
     _tabController = new TabController(vsync: this, length: tabList.length);
-
   }
 
   void dispose() {
     _tabController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: AppBar(title: Text('Details',
-        style: TextStyle(color: Colors.grey[900]),),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Details',
+          style: TextStyle(color: Colors.grey[900]),
+        ),
         elevation: 0.0,
         iconTheme: IconThemeData(
           color: Colors.grey[900], //change your color here
         ),
-       backgroundColor:Colors.transparent,
+        backgroundColor: Colors.transparent,
       ),
-      body:  ListView(
+      body: ListView(
         children: [
           new Column(
             children: <Widget>[
@@ -87,10 +93,10 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
               image_carousel,
 
               //padding widget
-              new Padding(padding: const EdgeInsets.all(10.0),
+              new Padding(
+                padding: const EdgeInsets.all(10.0),
                 child: InkWell(
-                  onTap: (){
-
+                  onTap: () {
 //                    Navigator.push(
 //                        context,
 //                        new MaterialPageRoute(
@@ -98,7 +104,6 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
 //                                context) => new AddProductService()));
                   },
                   child: Container(
-
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(13.0),
                         color: Colors.white,
@@ -122,40 +127,66 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                              Text('String boots' , style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
-                              Icon(Icons.favorite , color : Colors.lightBlueAccent)
-                            ],),
-                            Container(
-                                width: MediaQuery.of(context).size.width,
-                                child: Text('#12345', style: TextStyle(color: Colors.grey , fontSize: 11), )),
-                           SizedBox(height: 10,),
-                            Row(
-                              children: [
-                                Text('\$456' ,
-                                    style: new TextStyle( fontWeight: FontWeight.bold, color: Colors.black , decoration: TextDecoration.lineThrough,)
+                                Text(
+                                  'String boots',
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                SizedBox(width: 10,),
-
-                                Text('\$87',
-                                  style: new TextStyle( fontWeight: FontWeight.bold, color: Colors.black )
-
-                      ),
-                                SizedBox(width: 10,),
-
-                                Container(
-                                    color: Colors.lightBlue,
-                                    child: Text('5')),
-
+                                InkWell(
+                                  onTap: () {
+//                                    Navigator.push(
+//                                        context,
+//                                        new MaterialPageRoute(
+//                                            builder: (context) =>
+//                                                new ChatScreen()));
+                                  },
+                                  child: Icon(Icons.favorite,
+                                      color: Colors.lightBlueAccent),
+                                ),
                               ],
                             ),
-                            SizedBox(height: 11,),
-
                             Container(
                                 width: MediaQuery.of(context).size.width,
-                                child: Text('brand name : NIKE')
+                                child: Text(
+                                  '#12345',
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 11),
+                                )),
+                            SizedBox(
+                              height: 10,
                             ),
-                            SizedBox(height: 11,),
-
+                            Row(
+                              children: [
+                                Text('\$456',
+                                    style: new TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      decoration: TextDecoration.lineThrough,
+                                    )),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text('\$87',
+                                    style: new TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black)),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                    color: Colors.lightBlue, child: Text('5')),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 11,
+                            ),
+                            Container(
+                                width: MediaQuery.of(context).size.width,
+                                child: Text('brand name : NIKE')),
+                            SizedBox(
+                              height: 11,
+                            ),
                             Container(
                               width: MediaQuery.of(context).size.width,
                               child: Row(
@@ -168,25 +199,30 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
                                       starCount: 5,
                                       rating: 4,
                                       size: 19.0,
-                                      isReadOnly:true,
+                                      isReadOnly: true,
                                       color: Colors.deepOrangeAccent,
                                       borderColor: Colors.deepOrangeAccent,
-                                      spacing:0.0
+                                      spacing: 0.0),
+                                  SizedBox(
+                                    width: 5,
                                   ),
-                                  SizedBox(width: 5,),
-
                                   Text('Rating 4'),
                                   Spacer(),
-                                  Icon(Icons.home, color: Colors.red,)
+                                  Icon(
+                                    Icons.home,
+                                    color: Colors.red,
+                                  )
                                 ],
                               ),
                             ),
-                            SizedBox(width: 5,),
+                            SizedBox(
+                              width: 5,
+                            ),
                           ],
                         ),
-                      )
-                  ),
-                ),),
+                      )),
+                ),
+              ),
 
               Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -203,32 +239,36 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.remove , color: Colors.blue,),
+                        Icon(
+                          Icons.remove,
+                          color: Colors.blue,
+                        ),
                         Text('5'),
-                        Icon(Icons.add, color: Colors.blue,)
+                        Icon(
+                          Icons.add,
+                          color: Colors.blue,
+                        )
                       ],
                     ),
                   ),
                 ),
               ),
 
-
               Container(
                 decoration: new BoxDecoration(color: Colors.white),
                 child: new TabBar(
-                    labelColor: Colors.lightBlue,
-                    controller: _tabController,
-                    unselectedLabelColor: Colors.grey[800],
-                    indicatorColor: Colors.lightBlue,
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    tabs: tabList,
+                  labelColor: Colors.lightBlue,
+                  controller: _tabController,
+                  unselectedLabelColor: Colors.grey[800],
+                  indicatorColor: Colors.lightBlue,
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  tabs: tabList,
                   labelStyle: TextStyle(fontSize: 12),
-
                 ),
               ),
 
               new Container(
-                    height: MediaQuery.of(context).size.height / 1.6,
+                height: MediaQuery.of(context).size.height / 1.6,
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: new TabBarView(
@@ -241,18 +281,25 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
                   ),
                 ),
               ),
-              RaisedButton(onPressed: (){},
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Add to cart' , style: TextStyle(fontSize:23, color: Colors.white),),
-                    SizedBox(width:4),
-                    Icon(Icons.shopping_cart , color: Colors.white,)
-                  ],
+              RaisedButton(
+                onPressed: () {},
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Add to cart',
+                        style: TextStyle(fontSize: 23, color: Colors.white),
+                      ),
+                      SizedBox(width: 4),
+                      Icon(
+                        Icons.shopping_cart,
+                        color: Colors.white,
+                      )
+                    ],
+                  ),
                 ),
-              ),
                 color: Colors.lightBlue,
               )
             ],
@@ -260,6 +307,5 @@ class _DetailsScreenState extends State<DetailsScreen> with TickerProviderStateM
         ],
       ),
     );
-
   }
 }

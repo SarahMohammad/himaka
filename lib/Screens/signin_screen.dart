@@ -164,58 +164,77 @@ class _SignInScreenState extends State<SignInScreen> {
                                                   BorderRadius.circular(10),
                                             ),
                                             onPressed: () async {
-                                              // if(model.authValidation(emailController.text.trim(), passwordController.text)) {
-                                              //   LoginResponse loginResponse=
-                                              //   await model.login(emailController.text.trim(), passwordController.text);
-                                              //   if(loginResponse==null){
-                                              //     final snackBar = SnackBar(
-                                              //       content: Text(
-                                              //           AppLocalizations.of(context)
-                                              //               .translate('check_network')),
-                                              //       backgroundColor: Colors.red,
-                                              //     );
-                                              //     _scaffoldKey.currentState
-                                              //         .showSnackBar(snackBar);
-                                              //
-                                              //   }
-                                              //   else if (loginResponse.status && loginResponse.data!=null && loginResponse.data.user!=null ) {
-                                              //     saveLoginData(
-                                              //         json.encode(loginResponse.data.user));
-                                              //     Globals.userData=loginResponse.data.user;
-                                              //     showToast(
-                                              //         AppLocalizations.of(context)
-                                              //             .translate('auth_response_success'),
-                                              //         Colors.green);
-                                              //     Navigator.pushAndRemoveUntil(
-                                              //         context,
-                                              //         MaterialPageRoute(
-                                              //             builder: (context) =>
-                                              //                 HomePage()),
-                                              //             (Route<dynamic>
-                                              //         route) =>
-                                              //         false);
-                                              //   } else if (!loginResponse.status) {
-                                              //     showToast(
-                                              //         AppLocalizations.of(context)
-                                              //             .translate('auth_response_error'), Colors.red);
-                                              //   } else {
-                                              //     final snackBar = SnackBar(
-                                              //       content: Text(
-                                              //           AppLocalizations.of(context)
-                                              //               .translate('check_network')),
-                                              //       backgroundColor: Colors.red,
-                                              //     );
-                                              //     _scaffoldKey.currentState
-                                              //         .showSnackBar(snackBar);
-                                              //   }
-                                              // }
-                                              Navigator.pushAndRemoveUntil(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          HomePage()),
-                                                  (Route<dynamic> route) =>
-                                                      false);
+                                              if (model.authValidation(
+                                                  emailController.text.trim(),
+                                                  passwordController.text)) {
+                                                LoginResponse loginResponse =
+                                                    await model.login(
+                                                        emailController.text
+                                                            .trim(),
+                                                        passwordController
+                                                            .text);
+                                                if (loginResponse == null) {
+                                                  final snackBar = SnackBar(
+                                                    content: Text(
+                                                        AppLocalizations.of(
+                                                                context)
+                                                            .translate(
+                                                                'check_network')),
+                                                    backgroundColor: Colors.red,
+                                                  );
+                                                  _scaffoldKey.currentState
+                                                      .showSnackBar(snackBar);
+                                                } else if (loginResponse
+                                                        .status &&
+                                                    loginResponse.data !=
+                                                        null &&
+                                                    loginResponse.data.user !=
+                                                        null) {
+                                                  saveLoginData(json.encode(
+                                                      loginResponse.data.user));
+                                                  Globals.userData =
+                                                      loginResponse.data.user;
+                                                  showToast(
+                                                      AppLocalizations.of(
+                                                              context)
+                                                          .translate(
+                                                              'auth_response_success'),
+                                                      Colors.green);
+                                                  Navigator.pushAndRemoveUntil(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              HomePage()),
+                                                      (Route<dynamic> route) =>
+                                                          false);
+                                                } else if (!loginResponse
+                                                    .status) {
+                                                  showToast(
+                                                      AppLocalizations.of(
+                                                              context)
+                                                          .translate(
+                                                              'auth_response_error'),
+                                                      Colors.red);
+                                                } else {
+                                                  final snackBar = SnackBar(
+                                                    content: Text(
+                                                        AppLocalizations.of(
+                                                                context)
+                                                            .translate(
+                                                                'check_network')),
+                                                    backgroundColor: Colors.red,
+                                                  );
+                                                  _scaffoldKey.currentState
+                                                      .showSnackBar(snackBar);
+                                                }
+                                              }
+//                                              Navigator.pushAndRemoveUntil(
+//                                                  context,
+//                                                  MaterialPageRoute(
+//                                                      builder: (context) =>
+//                                                          HomePage()),
+//                                                  (Route<dynamic> route) =>
+//                                                      false);
                                             },
                                             padding: EdgeInsets.all(20),
                                             color: Colors.lightBlueAccent,

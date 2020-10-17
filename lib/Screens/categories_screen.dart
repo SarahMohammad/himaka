@@ -1,135 +1,5 @@
-//import 'package:flutter/gestures.dart';
-//import 'package:flutter/material.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
-//
-//class HomeScreen extends StatefulWidget {
-//  @override
-//  _HomeScreenState createState() => new _HomeScreenState();
-//}
-//
-//class _HomeScreenState extends State<HomeScreen> {
-//
-//  final controller = PageController(
-//    initialPage: 0,
-//  );
-//
-//  @override
-//  Widget build(BuildContext context) {
-//
-//
-//
-//
-//    Expanded(child : Align(
-//        alignment: FractionalOffset.bottomCenter,
-//        child:
-//
-//        RichText(
-//          textAlign: TextAlign.center,
-//          text: new TextSpan(
-//            text: 'by creating or logging to an account you agree to out ',
-//            children: <TextSpan>[
-//              new TextSpan(
-//                  text: 'terms and conditions',
-//                  style: new TextStyle(decoration: TextDecoration.underline,)
-//              ),
-//              new TextSpan(text: ' and '),
-//              new TextSpan(
-//                text: 'privacy policy',
-//                style: new TextStyle(
-//                  decoration: TextDecoration.underline,
-//                ),
-//                recognizer: new TapGestureRecognizer()..onTap = () => print('Tap Here onTap'),
-//
-//              ),
-//            ],
-//          ),
-//        )
-//    ));
-//
-//    return Scaffold(
-//      body: Row(
-//        children: [
-//          Flexible(
-//            flex: 1,
-//            child: Container(
-//              child: ListView(children: [
-//                InkWell(child: Text('hi' , style: TextStyle(fontSize: 23),), onTap: (){
-//                  controller.jumpToPage(0);
-//                },),
-//                InkWell(child: Text('non'), onTap: (){
-//                  controller.jumpToPage(1);
-//
-//                },),
-//                InkWell(child: Text('bbb'), onTap: (){
-//                  controller.jumpToPage(2);
-//
-//                },),
-//                InkWell(child: Text('bbb'), onTap: (){
-//                  controller.jumpToPage(2);
-//
-//                },),
-//                InkWell(child: Text('bbb'), onTap: (){
-//                  controller.jumpToPage(2);
-//
-//                },),
-//                InkWell(child: Text('bbb'), onTap: (){
-//                  controller.jumpToPage(2);
-//
-//                },),
-//              ],),
-//            ),
-//          ),
-//
-//
-//
-//          Flexible(
-//            flex: 2,
-//            child: Container(
-//              child: PageView(
-//              controller: controller,
-//              onPageChanged: (page)=>{ print(page.toString()) },
-//              pageSnapping: false,
-//              children: <Widget>[
-//                Container(
-//                    color: Colors.pink,
-//                    child: Center(
-//                        child: Text('This is Widget 1',
-//                          style: TextStyle(fontSize: 25,
-//                              color: Colors.white),))
-//                ),
-//
-//                Container(
-//                    color: Colors.green,
-//                    child: Center(
-//                        child: Text('This is Widget - 2',
-//                          style: TextStyle(fontSize: 25,
-//                              color: Colors.white),))
-//                ),
-//
-//                Container(
-//                    color: Colors.lightBlue,
-//                    child: Center(
-//                        child: Text('This is Widget - 3',
-//                          style: TextStyle(fontSize: 25,
-//                              color: Colors.white),))
-//                ),
-//
-//              ],
-//            ),
-//
-//            ),
-//          )
-//
-//
-//
-//        ],
-//      ),
-//    );
-//  }
-//}
-
-
 import 'package:flutter/material.dart';
+import 'package:himaka/Screens/DetailsScreen/details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -139,135 +9,133 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-
   final List<Map<String, dynamic>> subcategory = [
     {"title": "Mobiles"},
-    { "title": "Electronics"},
+    {"title": "Electronics"},
     {"title": "Home"},
-    { "title": "Health and beauty"},
+    {"title": "Health and beauty"},
     {"title": "Supermarket"},
-    { "title": "Fashion"},
+    {"title": "Fashion"},
     {"title": "Baby products"},
-    { "title": "makeup"},
+    {"title": "makeup"},
   ];
 
   final List<List<Map<String, dynamic>>> categoryItem = [
     [
       {
         'image':
-        'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
+            'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
         'title': 'Mobile',
       },
       {
         'image':
-        'https://www.fewabazar.com/images/thumbs/000/0009941_cg-halogen-heater-cg-hh12c02.jpeg',
+            'https://www.fewabazar.com/images/thumbs/000/0009941_cg-halogen-heater-cg-hh12c02.jpeg',
         'title': 'Heater',
       },
       {
         'image':
-        'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
+            'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
         'title': 'Mobile',
       },
       {
         'image':
-        'https://www.fewabazar.com/images/thumbs/000/0009941_cg-halogen-heater-cg-hh12c02.jpeg',
+            'https://www.fewabazar.com/images/thumbs/000/0009941_cg-halogen-heater-cg-hh12c02.jpeg',
         'title': 'Heater',
       },
     ],
     [
       {
         'image':
-        'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
+            'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
         'title': 'Mobile',
       },
       {
         'image':
-        'https://fsmedia.imgix.net/b5/62/42/90/3869/4dbd/bffc/322850808ab7/dellxps131jpg.jpeg?rect=0%2C227%2C1280%2C640&auto=format%2Ccompress&dpr=2&w=650',
+            'https://fsmedia.imgix.net/b5/62/42/90/3869/4dbd/bffc/322850808ab7/dellxps131jpg.jpeg?rect=0%2C227%2C1280%2C640&auto=format%2Ccompress&dpr=2&w=650',
         'title': 'Laptop',
       },
     ],
     [
       {
         'image':
-        'https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/90/95/071d6d84-b3a8-4a58-9314-e300dc0a8de7.jpg',
+            'https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/90/95/071d6d84-b3a8-4a58-9314-e300dc0a8de7.jpg',
         'title': 'Earphone',
       },
       {
         'image':
-        'https://images-na.ssl-images-amazon.com/images/I/81ClkOh2gpL._SX355_.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/81ClkOh2gpL._SX355_.jpg',
         'title': 'Memory Card',
       },
     ],
     [
       {
         'image':
-        'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
+            'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
         'title': 'Mobile',
       },
       {
         'image':
-        'https://fsmedia.imgix.net/b5/62/42/90/3869/4dbd/bffc/322850808ab7/dellxps131jpg.jpeg?rect=0%2C227%2C1280%2C640&auto=format%2Ccompress&dpr=2&w=650',
+            'https://fsmedia.imgix.net/b5/62/42/90/3869/4dbd/bffc/322850808ab7/dellxps131jpg.jpeg?rect=0%2C227%2C1280%2C640&auto=format%2Ccompress&dpr=2&w=650',
         'title': 'Laptop',
       },
     ],
     [
       {
         'image':
-        'https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/90/95/071d6d84-b3a8-4a58-9314-e300dc0a8de7.jpg',
+            'https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/90/95/071d6d84-b3a8-4a58-9314-e300dc0a8de7.jpg',
         'title': 'Earphone',
       },
       {
         'image':
-        'https://images-na.ssl-images-amazon.com/images/I/81ClkOh2gpL._SX355_.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/81ClkOh2gpL._SX355_.jpg',
         'title': 'Memory Card',
       },
     ],
     [
       {
         'image':
-        'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
+            'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
         'title': 'Mobile',
       },
       {
         'image':
-        'https://fsmedia.imgix.net/b5/62/42/90/3869/4dbd/bffc/322850808ab7/dellxps131jpg.jpeg?rect=0%2C227%2C1280%2C640&auto=format%2Ccompress&dpr=2&w=650',
+            'https://fsmedia.imgix.net/b5/62/42/90/3869/4dbd/bffc/322850808ab7/dellxps131jpg.jpeg?rect=0%2C227%2C1280%2C640&auto=format%2Ccompress&dpr=2&w=650',
         'title': 'Laptop',
       },
     ],
     [
       {
         'image':
-        'https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/90/95/071d6d84-b3a8-4a58-9314-e300dc0a8de7.jpg',
+            'https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/90/95/071d6d84-b3a8-4a58-9314-e300dc0a8de7.jpg',
         'title': 'Earphone',
       },
       {
         'image':
-        'https://images-na.ssl-images-amazon.com/images/I/81ClkOh2gpL._SX355_.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/81ClkOh2gpL._SX355_.jpg',
         'title': 'Memory Card',
       },
     ],
     [
       {
         'image':
-        'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
+            'https://static.digit.in/default/thumb_97296_default_td_480x480.jpeg',
         'title': 'Mobile',
       },
       {
         'image':
-        'https://fsmedia.imgix.net/b5/62/42/90/3869/4dbd/bffc/322850808ab7/dellxps131jpg.jpeg?rect=0%2C227%2C1280%2C640&auto=format%2Ccompress&dpr=2&w=650',
+            'https://fsmedia.imgix.net/b5/62/42/90/3869/4dbd/bffc/322850808ab7/dellxps131jpg.jpeg?rect=0%2C227%2C1280%2C640&auto=format%2Ccompress&dpr=2&w=650',
         'title': 'Laptop',
       },
     ],
     [
       {
         'image':
-        'https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/90/95/071d6d84-b3a8-4a58-9314-e300dc0a8de7.jpg',
+            'https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/90/95/071d6d84-b3a8-4a58-9314-e300dc0a8de7.jpg',
         'title': 'Earphone',
       },
       {
         'image':
-        'https://images-na.ssl-images-amazon.com/images/I/81ClkOh2gpL._SX355_.jpg',
+            'https://images-na.ssl-images-amazon.com/images/I/81ClkOh2gpL._SX355_.jpg',
         'title': 'Memory Card',
       },
     ],
@@ -279,7 +147,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
-
       body: Container(
         height: screenSize.height,
         width: screenSize.width,
@@ -300,6 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onTap: () {
                             setState(() {
                               selectedCategory = index;
+                              print('dddd');
                             });
                           },
                           child: Container(
@@ -364,34 +232,44 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemBuilder: (context, index) {
                           return LayoutBuilder(
                             builder: (context, cons) {
-                              return GridTile(
-                                child: Column(
-                                  children: <Widget>[
-                                    ClipRRect(
-                                      child: Container(
-                                        color: Colors.grey ,
-                                        child: Image.network(
-                                          categoryItem[selectedCategory][index]
-                                          ['image'],
-                                          fit: BoxFit.contain,
-                                          height: cons.maxHeight - 30,
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      new MaterialPageRoute(
+                                          builder: (context) =>
+                                              new DetailsScreen()));
+                                },
+                                child: GridTile(
+                                  child: Column(
+                                    children: <Widget>[
+                                      ClipRRect(
+                                        child: Container(
+                                          color: Colors.grey,
+                                          child: Image.network(
+                                            categoryItem[selectedCategory]
+                                                [index]['image'],
+                                            fit: BoxFit.contain,
+                                            height: cons.maxHeight - 30,
+                                          ),
                                         ),
+                                        borderRadius:
+                                            BorderRadius.circular(40.0),
                                       ),
-                                      borderRadius: BorderRadius.circular(40.0),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      categoryItem[selectedCategory][index]
-                                      ['title'],
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w400,
+                                      SizedBox(
+                                        height: 5,
                                       ),
-                                    )
-                                  ],
+                                      Text(
+                                        categoryItem[selectedCategory][index]
+                                            ['title'],
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               );
                             },

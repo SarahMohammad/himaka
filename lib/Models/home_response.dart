@@ -272,7 +272,7 @@ class Price {
     this.inCurrentCurrency,
   });
 
-  String amount;
+  double amount;
   String formatted;
   Currency currency;
   InCurrentCurrency inCurrentCurrency;

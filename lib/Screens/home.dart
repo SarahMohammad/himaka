@@ -1,13 +1,17 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:himaka/Screens/first_home_screen.dart';
 import 'package:himaka/Screens/categories_screen.dart';
 import 'package:himaka/Screens/settings_screen.dart';
 import 'package:himaka/Screens/wallets_screen.dart';
 import 'package:himaka/Screens/wish_list_screen.dart';
 import 'package:himaka/utils/app_localizations.dart';
+import 'package:himaka/utils/globals.dart';
 import 'package:himaka/utils/searchDialog.dart';
+import 'package:himaka/Screens/Chat/utils.dart';
+
+import 'Chat/chatlist.dart';
+import 'Chat/firebaseController.dart';
+import 'Chat/notificationController.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -171,5 +175,105 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ));
+  }
+
+//  TextEditingController _nameTextController = TextEditingController();
+//  TextEditingController _introTextController = TextEditingController();
+//  File _userImageFile = File('');
+//  String _userImageUrlFromFB = '';
+
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    NotificationController.instance.takeFCMTokenWhenAppLaunch();
+    NotificationController.instance.initLocalNotification();
+    setCurrentChatRoomID('none');
+    _takeUserInformationFromFBDB();
+    _saveDataToServer();
+    super.initState();
+  }
+
+  _moveToChatList(data) {
+    setState(() {
+      _isLoading = false;
+    });
+    if (data != null) {
+      print('go to chat');
+//      Navigator.push(
+//          context,
+//          MaterialPageRoute(
+//              builder: (context) => ChatList(data, "name")));
+    } else {
+      _showDialog('Save user data error');
+    }
+  }
+
+  _takeUserInformationFromFBDB() async {
+    FirebaseController.instanace
+        .takeUserInformationFromFBDB()
+        .then((documents) {
+      if (documents.length > 0) {
+        print('there is a user saved in FBDB');
+//        _nameTextController.text = documents[0]['name'];
+//        _introTextController.text = documents[0]['intro'];
+//        setState(() {
+//          _userImageUrlFromFB = documents[0]['userImageUrl'];
+//        });
+      }
+      setState(() {
+        _isLoading = false;
+      });
+    });
+  }
+
+  _showDialog(String msg) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text(msg),
+          );
+        });
+  }
+
+  _saveDataToServer() {
+    setState(() {
+      _isLoading = true;
+    });
+    String alertString = checkValidUserData(Globals.userData.first_name,
+        Globals.userData.last_name, Globals.userData.token);
+
+    if (alertString.trim() != '') {
+      _showDialog(alertString);
+    } else {
+      FirebaseController.instanace
+          .saveUserDataToFirebaseDatabase(
+        randomIdWithName(Globals.userData.first_name),
+        Globals.userData.first_name,
+      )
+          .then((data) {
+        _moveToChatList(data);
+      });
+//      _userImageUrlFromFB != ''
+//          ? FirebaseController.instanace
+//          .saveUserDataToFirebaseDatabase(
+//          randomIdWithName(_nameTextController.text),
+//          _nameTextController.text,
+//          _introTextController.text,
+//          _userImageUrlFromFB)
+//          .then((data) {
+//        _moveToChatList(data);
+//      })
+//          : FirebaseController.instanace
+//          .saveUserImageToFirebaseStorage(
+//          randomIdWithName(_nameTextController.text),
+//          _nameTextController.text,
+//          _introTextController.text,
+//          _userImageFile)
+//          .then((data) {
+//        _moveToChatList(data);
+//      });
+    }
   }
 }
