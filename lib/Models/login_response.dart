@@ -1,6 +1,8 @@
 class LoginResponse {
   bool status;
-  Errors errors;
+
+  // Errors errors;
+  List<String> errors;
   String msg;
   LoginDataResponse data;
 
@@ -10,10 +12,16 @@ class LoginResponse {
     data = json['data'] != null
         ? new LoginDataResponse.fromJson(json['data'])
         : null;
-    errors =
-        json['errors'] != null ? new Errors.fromJson(json['errors']) : null;
+    // errors =
+    //     json['errors'] != null ? new Errors.fromJson(json['errors']) : null;
     status = json['status'];
     msg = json['msg'];
+    if (json['errors'] != null) {
+      errors = new List<String>();
+      json['errors'].forEach((v) {
+        errors.add(v);
+      });
+    }
   }
 }
 
@@ -78,6 +86,7 @@ class LoginUserResponse {
       id: json['id'],
       first_name: json['first_name'],
       last_name: json['last_name'],
+      token: json['token'],
       commission_acount: json['commission_acount'],
       cachback_caccount: json['cachback_caccount'],
       cadeau_acount: json['cadeau_acount'],
@@ -97,6 +106,7 @@ class LoginUserResponse {
         'id': id,
         'first_name': first_name,
         'last_name': last_name,
+        'token': token,
         'commission_acount': commission_acount,
         'cachback_caccount': cachback_caccount,
         'cadeau_acount': cadeau_acount,
@@ -150,19 +160,16 @@ class LoginUserResponse {
 }
 
 class Errors {
-  Map<String, List<String>> errorsCode =
-  new Map<String, List<String>>();
+  Map<String, List<String>> errorsCode = new Map<String, List<String>>();
   List<String> _errorsDesc;
 
   Errors.fromJson(Map<String, dynamic> json) {
-      json.forEach((k, v) {
-        _errorsDesc = new List<String>();
-        v.forEach((v) {
-          _errorsDesc.add(v);
-        });
-        errorsCode[k] = _errorsDesc;
+    json.forEach((k, v) {
+      _errorsDesc = new List<String>();
+      v.forEach((v) {
+        _errorsDesc.add(v);
       });
-    }
-
+      errorsCode[k] = _errorsDesc;
+    });
+  }
 }
-

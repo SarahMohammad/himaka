@@ -312,24 +312,33 @@ class _FourthStepSignUpScreenState extends State<FourthStepSignUpScreen> {
                                                   (Route<dynamic> route) =>
                                                       false);
                                             } else if (!loginResponse.status) {
-                                              if ((loginResponse
-                                                      .errors.errorsCode.keys
-                                                      .toList())[0] ==
-                                                  "email")
+                                              if (loginResponse.errors !=
+                                                      null &&
+                                                  loginResponse.errors.length >
+                                                      0) {
                                                 showToast(
-                                                    AppLocalizations.of(context)
-                                                        .translate(
-                                                            'email_exist'),
+                                                    model.getRegisterErrors(
+                                                        loginResponse.errors),
                                                     Colors.red);
-                                              else if ((loginResponse
-                                                      .errors.errorsCode.keys
-                                                      .toList())[0] ==
-                                                  "code")
-                                                showToast(
-                                                    AppLocalizations.of(context)
-                                                        .translate(
-                                                            'code_error'),
-                                                    Colors.red);
+                                              }
+                                              // if ((loginResponse
+                                              //         .errors.errorsCode.keys
+                                              //         .toList())[0] ==
+                                              //     "email")
+                                              //   showToast(
+                                              //       AppLocalizations.of(context)
+                                              //           .translate(
+                                              //               'email_exist'),
+                                              //       Colors.red);
+                                              // else if ((loginResponse
+                                              //         .errors.errorsCode.keys
+                                              //         .toList())[0] ==
+                                              //     "code")
+                                              //   showToast(
+                                              //       AppLocalizations.of(context)
+                                              //           .translate(
+                                              //               'code_error'),
+                                              //       Colors.red);
                                               else
                                                 showToast(
                                                     AppLocalizations.of(context)

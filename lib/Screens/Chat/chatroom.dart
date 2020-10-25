@@ -14,7 +14,7 @@ import 'notificationController.dart';
 
 class ChatRoom extends StatefulWidget {
   ChatRoom(this.myID, this.myName, this.selectedUserToken, this.selectedUserID,
-      this.chatID, this.selectedUserName, this.selectedUserThumbnail);
+      this.chatID, this.selectedUserName);
 
   String myID;
   String myName;
@@ -22,7 +22,6 @@ class ChatRoom extends StatefulWidget {
   String selectedUserID;
   String chatID;
   String selectedUserName;
-  String selectedUserThumbnail;
 
   @override
   _ChatRoomState createState() => _ChatRoomState();
@@ -65,8 +64,30 @@ class _ChatRoomState extends State<ChatRoom> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Chat App - Chat Room'),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          leading: Icon(
+            Icons.person,
+            size: 30,
+            color: Colors.black,
+          ),
+          title: Text(
+            'Chat with Mohammad Ali',
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
           centerTitle: true,
+          actions: [
+            IconButton(
+                icon: Icon(
+                  Icons.cancel,
+                  color: Colors.black,
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                })
+          ],
         ),
         body: VisibilityDetector(
           key: Key("1"),
@@ -118,7 +139,6 @@ class _ChatRoomState extends State<ChatRoom> {
                                     ? _listItemOther(
                                         context,
                                         widget.selectedUserName,
-                                        widget.selectedUserThumbnail,
                                         data['content'],
                                         returnTimeStamp(data['timestamp']),
                                         data['type'])
@@ -150,8 +170,8 @@ class _ChatRoomState extends State<ChatRoom> {
         ));
   }
 
-  Widget _listItemOther(BuildContext context, String name, String thumbnail,
-      String message, String time, String type) {
+  Widget _listItemOther(BuildContext context, String name, String message,
+      String time, String type) {
     final size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.only(top: 4.0),
@@ -163,30 +183,29 @@ class _ChatRoomState extends State<ChatRoom> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GestureDetector(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(24.0),
-                      child: CachedNetworkImage(
-                        imageUrl: thumbnail,
-                        placeholder: (context, url) => Container(
-                          transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                          child: Container(
-                              width: 60,
-                              height: 60,
-                              child: Center(
-                                  child: new CircularProgressIndicator())),
-                        ),
-                        errorWidget: (context, url, error) =>
-                            new Icon(Icons.error),
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
+//                Padding(
+//                  padding: const EdgeInsets.all(8.0),
+//                  child: GestureDetector(
+//                    child: ClipRRect(
+//                      borderRadius: BorderRadius.circular(24.0),
+//                      child: CachedNetworkImage(
+//                        placeholder: (context, url) => Container(
+//                          transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+//                          child: Container(
+//                              width: 60,
+//                              height: 60,
+//                              child: Center(
+//                                  child: new CircularProgressIndicator())),
+//                        ),
+//                        errorWidget: (context, url, error) =>
+//                            new Icon(Icons.error),
+//                        width: 50,
+//                        height: 50,
+//                        fit: BoxFit.cover,
+//                      ),
+//                    ),
+//                  ),
+//                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[

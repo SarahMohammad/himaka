@@ -23,9 +23,9 @@ class _HomePageState extends State<HomePage> {
   TextEditingController searchKeyController = new TextEditingController();
 
   final _pageOptions = [
-    FirstHomeScreen(),
-    FirstHomeScreen(),
-    HomeScreen(),
+    FirstHomeScreen(),//0
+    HomeScreen(),//1 service
+    HomeScreen(),//2 products
     WalletsScreen(),
     SettingsScreen(),
   ];
@@ -38,7 +38,8 @@ class _HomePageState extends State<HomePage> {
           elevation: 0.0,
           title: InkWell(
             onTap: () {
-              showSearchDialog(context,
+              showSearchDialog(
+                  context, _selectedTab == 2 ? 1 : _selectedTab == 1 ? 2 : 0,
                   searchKeyController: searchKeyController);
             },
             child: Container(

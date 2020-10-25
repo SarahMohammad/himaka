@@ -3,7 +3,7 @@ import 'package:himaka/Screens/search_screen.dart';
 import 'package:himaka/utils/app_localizations.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-Future<void> showSearchDialog(context,
+Future<void> showSearchDialog(context,int screenIndex,
     {TextEditingController searchKeyController}) async {
   Alert(
       title: '',
@@ -35,7 +35,7 @@ Future<void> showSearchDialog(context,
                 context,
                 new MaterialPageRoute(
                     builder: (
-                        context) => new SearchScreen(searchKeyController.text)));
+                        context) => new SearchScreen(searchKeyController.text,screenIndex)));
             else
               Navigator.pop(context);
           },

@@ -253,6 +253,14 @@ class AuthViewModel extends BaseModel {
       return currencyData.subscription_cost + ' ' + val + ' every 1 Day';
   }
 
+  String getRegisterErrors(List<String> errors) {
+    String errorsResult = "";
+    errors.forEach((error) {
+      errorsResult += error + '\n';
+    });
+    return errorsResult;
+  }
+
   bool get fNameValidate => _fNameValidate;
 
   PreRegisterResponse get preRegisterResponse => _preRegisterResponse;
@@ -282,7 +290,6 @@ class AuthViewModel extends BaseModel {
   bool get methodIdValidate => _methodIdValidate;
 
   CurrencyData get selectedSubscription => _selectedSubscription;
-
 
   bool get currencyValidate => _currencyValidate;
 

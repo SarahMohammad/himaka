@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiHeaders {
   static const endpoint = 'http://fleetcart.adology-solutions.com/api';
@@ -49,8 +50,17 @@ class ApiHeaders {
     String basicAuth = 'Basic ' +
         base64Encode(utf8.encode('himakaFlutter:NjtzfEriTFd7eMe6GuU9nrvi'));
     try {
-      Response response = await Dio().post('$endpoint$path',
-          data: map,
+      Dio dio = Dio();
+      // dio.interceptors.add(PrettyDioLogger(
+      //     requestHeader: true,
+      //     requestBody: true,
+      //     responseBody: true,
+      //     responseHeader: false,
+      //     error: true,
+      //     compact: true,
+      //     maxWidth: 90));
+      Response response = await dio.post('$endpoint$path',
+          data: FormData.fromMap(map),
           options: Options(
               headers: <String, String>{'authorization': basicAuth},
               followRedirects: false,
@@ -88,7 +98,10 @@ class ApiHeaders {
       Response response = await Dio().post('$endpoint$userEndpoint$path',
           data: FormData.fromMap(map),
           options: Options(
-              headers: <String, String>{'authorization': basicAuth},
+              headers: <String, String>{
+                'authorization': basicAuth,
+                'content-type': 'multipart/form-data;'
+              },
               followRedirects: false,
               validateStatus: (status) {
                 return status < 500;

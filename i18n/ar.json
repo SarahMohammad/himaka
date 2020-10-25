@@ -48,6 +48,22 @@
   "cash_back_wallet": "محفظة استرداد النقود",
   "search_hint": "ما الذي تبحث عنه ؟",
   "search": "ابحث",
-  "filter": "تنقية"
+  "filter": "تنقية",
+
+  "add_pictures": "اضافة صور",
+  "select_category": "اختر الفئة",
+  "select_from": "اختر من",
+  "camera": "الكاميرا",
+  "gallery": "الاستوديو",
+  "no_data": "لا توجد بيانات",
+
+
+  "add": "اضافة",
+  "description": "الوصف",
+  "price": "السعر",
+  "discount": "نسبة الخصم",
+  "desc_error": "الوصف يجب ان لا يقل عن ٥ حروف ",
+
+  "images_error": "يجب ان تختار صورة واحدة علي الاقل",
 
 }

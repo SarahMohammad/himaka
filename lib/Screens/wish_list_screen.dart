@@ -43,7 +43,8 @@ class _WishListScreenState extends State<WishListScreen> {
                               separatorBuilder: (context, index) => SizedBox(
                                 height: 5,
                               ),
-                              itemCount: 9,
+                              itemCount:
+                                  model.wishListResponse.data.wishlist.length,
                               itemBuilder: (context, index) => Padding(
                                 padding: EdgeInsets.all(1.0),
                                 child: InkWell(
@@ -58,9 +59,15 @@ class _WishListScreenState extends State<WishListScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           children: <Widget>[
-                                            Icon(
-                                              Icons.camera_alt,
-                                              size: 80,
+                                            Image.network(
+                                              model
+                                                  .wishListResponse
+                                                  .data
+                                                  .wishlist[index]
+                                                  .baseImage
+                                                  .path,
+                                              width: 80,
+                                              height: 80,
                                             ),
                                             SizedBox(
                                               width: 20,
@@ -77,7 +84,11 @@ class _WishListScreenState extends State<WishListScreen> {
                                                               .spaceBetween,
                                                       children: [
                                                         Text(
-                                                          "Black Boots",
+                                                          model
+                                                              .wishListResponse
+                                                              .data
+                                                              .wishlist[index]
+                                                              .name,
                                                           style: TextStyle(
                                                               fontSize: 20),
                                                         ),
@@ -90,7 +101,13 @@ class _WishListScreenState extends State<WishListScreen> {
                                                       height: 5,
                                                     ),
                                                     Text(
-                                                      "#345678",
+                                                      "# " +
+                                                          model
+                                                              .wishListResponse
+                                                              .data
+                                                              .wishlist[index]
+                                                              .id
+                                                              .toString(),
                                                       style: TextStyle(
                                                           fontSize: 12,
                                                           color:
@@ -102,16 +119,34 @@ class _WishListScreenState extends State<WishListScreen> {
                                                     Row(
                                                       children: <Widget>[
                                                         Text(
-                                                          "180 ",
+                                                          model
+                                                              .wishListResponse
+                                                              .data
+                                                              .wishlist[index]
+                                                              .price
+                                                              .amount
+                                                              .toString(),
                                                           style: TextStyle(
                                                               color:
-                                                                  Colors.grey),
+                                                                  Colors.black,
+                                                              decoration:
+                                                                  TextDecoration
+                                                                      .lineThrough),
+                                                        ),
+                                                        SizedBox(
+                                                          width: 8,
                                                         ),
                                                         Text(
-                                                          "170",
+                                                          model
+                                                              .wishListResponse
+                                                              .data
+                                                              .wishlist[index]
+                                                              .sellingPrice
+                                                              .amount
+                                                              .toString(),
                                                           style: TextStyle(
                                                               color:
-                                                                  Colors.grey),
+                                                                  Colors.black),
                                                         ),
                                                       ],
                                                     ),

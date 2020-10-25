@@ -1,4 +1,27 @@
 {
+
+
+
+  "search_hint": "What are you looking for?",
+  "add_product": "Add a new product",
+  "add_to_cart": "Add to cart",
+
+
+
+  "commission_wallet": "Commission Wallet",
+  "points": "Points",
+  "view": "View",
+  "wallet_balance": "Wallet Balance",
+  "transition_to_personal": "Transition to personal wallet",
+  "enter_amount_to_load": "Enter amount to load",
+  "complete_your_transition": "Complete your transition",
+  "convert_your_points": "Convert your points",
+  "convert": "Convert",
+  "rewards_wallet": "Rewards Wallet",
+  "your_rewards": "Your rewards",
+  "earning_wallet": "Earnings Wallet",
+  "cash_back_wallet": "Cashback Wallet",
+
   "lets_get_started": "Lets get started",
   "sign_in": "Sign in",
   "sign_up": "Sign up",
@@ -25,6 +48,7 @@
   "phone_num": "Phone number",
   "re_enter_password": "Re-enter password",
   "national_id" : "National id",
+  "no_data": "No data Found",
   "code": "Code",
   "next": "Next",
   "sign_up_msg_1": "To protect your money during the withdrawal process, answer the question and enter the PIN",
@@ -38,11 +62,11 @@
   "select_method": "Select the method",
 
 
-
-  "search_hint": "What are you looking for?",
-  "add_product": "Add a new product",
-  "add_to_cart": "Add to cart",
-
+  "add_pictures": "Add Pictures",
+  "select_category": "Select category",
+  "select_from": "Select From",
+  "camera": "Camera",
+  "gallery": "Gallery",
 
   "place_product": "Place a product",
   "service": "Service",
@@ -140,31 +164,31 @@
 
 
 
-    "auth_response_error": "Your email  or password is not valid",
-    "auth_response_success": "You have been signed in successfully",
-    "code_error": "Invalid Code",
-    "something_went_error": "Something went error",
-    "your_order": "Your Order",
-    "list_error": "you must select one item",
-    "network_failed": "Sorry, no internet connection",
-    "email_exist": "This Email already exist",
-    "name_validate_error": "This field must be at least 3 character",
-    "eight_validate_error": "This field must be at least 8 character",
-    "four_validate_error": "This field must be at least 4 character",
-    "cpass_validation_error": "Confirm password must be equal to password",
-    "order": "Order",
-    "pricing_details": "Pricing details",
-    "to_be_paid_now": "To be paid now",
-    "to_be_paid_at_hotel": "To be paid at hotel",
-    "additional_taxes_and_fees_for_information_only": "Additional taxes and fees for information only",
-    "city_taxes": "City taxes",
-    "terms_and_conditions": "Terms and conditions",
-    "pay_directly_at_app": "Pay directly at App",
-    "congratulation": "Congratulation",
-    "your_booking_confirmed": "Your Booking Confirmed",
-    "your_booking_request": "Your booking confirmation has been sent",
-    "free_return": "Free return (until the last 15 Days)",
-    "personal_wallet": "Personal Wallet",
+  "auth_response_error": "Your email  or password is not valid",
+  "auth_response_success": "You have been signed in successfully",
+  "code_error": "Invalid Code",
+  "something_went_error": "Something went error",
+  "your_order": "Your Order",
+  "list_error": "you must select one item",
+  "network_failed": "Sorry, no internet connection",
+  "email_exist": "This Email already exist",
+  "name_validate_error": "This field must be at least 3 character",
+  "eight_validate_error": "This field must be at least 8 character",
+  "four_validate_error": "This field must be at least 4 character",
+  "cpass_validation_error": "Confirm password must be equal to password",
+  "order": "Order",
+  "pricing_details": "Pricing details",
+  "to_be_paid_now": "To be paid now",
+  "to_be_paid_at_hotel": "To be paid at hotel",
+  "additional_taxes_and_fees_for_information_only": "Additional taxes and fees for information only",
+  "city_taxes": "City taxes",
+  "terms_and_conditions": "Terms and conditions",
+  "pay_directly_at_app": "Pay directly at App",
+  "congratulation": "Congratulation",
+  "your_booking_confirmed": "Your Booking Confirmed",
+  "your_booking_request": "Your booking confirmation has been sent",
+  "free_return": "Free return (until the last 15 Days)",
+  "personal_wallet": "Personal Wallet",
 
 
 
@@ -173,18 +197,10 @@
 
 
 
-  "commission_wallet": "Commission Wallet",
-  "points": "Points",
-  "view": "View",
-  "wallet_balance": "Wallet Balance",
-  "transition_to_personal": "Transition to personal wallet",
-  "enter_amount_to_load": "Enter amount to load",
-  "complete_your_transition": "Complete your transition",
-  "convert_your_points": "Convert your points",
-  "convert": "Convert",
-  "rewards_wallet": "Rewards Wallet",
-  "your_rewards": "Your rewards",
-  "earning_wallet": "Earnings Wallet",
-  "cash_back_wallet": "Cashback Wallet"
+  "desc_error": "Description min length 5 letters",
+  "images_error": "you should select one image at least",
+  "add": "Add"
+
+
 }
 
